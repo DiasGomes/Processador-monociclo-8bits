@@ -1,0 +1,11 @@
+module somadorPC(adress_in, adress_out);
+
+input[7:0] adress_in;
+output reg[7:0] adress_out;
+
+always @(adress_in)
+	begin
+		adress_out <= adress_in + 1;
+	end
+
+endmodule

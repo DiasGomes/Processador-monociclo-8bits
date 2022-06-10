@@ -1,0 +1,22 @@
+module memInst(clock, endereco, OPcode, label, regAlvo, regOuImed);
+
+input clock;
+input [7:0] endereco;
+output reg[3:0] OPcode;
+output reg[5:0] label;
+output reg[1:0] regAlvo, regOuImed;
+
+reg [7:0] inst [0:63];
+	
+always @(endereco)
+	begin
+		OPcode <= inst[endereco][7:4];
+		label <= inst[endereco][5:0];
+		regAlvo <= inst[endereco][3:2];
+		regOuImed <= inst[endereco][1:0];
+	end
+
+	
+endmodule
+
+

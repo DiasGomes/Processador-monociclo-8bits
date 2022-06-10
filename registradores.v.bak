@@ -1,0 +1,34 @@
+module registradores(clock, regWrite, beq, regAlvo, regOpr, data,regAlvoValor, regOprValor);
+input clock;
+input regWrite;
+input beq;
+input [1:0] regAlvo, regOpr;
+input [7:0] data;
+output reg[7:0] regAlvoValor, regOprValor;
+
+reg [7:0] regis [3:0];
+
+//escrita no registrador alvo
+always @(negedge clock)
+	begin
+		if(regWrite == 1'b1) //sinal de controle para escrita no registrador alvo
+			begin
+				regis[regAlvo] = data;
+			end 
+	end
+//leitura do valor do registrador;
+always @(posedge clock)
+	begin
+		if(beq == 1'b1) //sinal de controle para o beq, em que os registradores são fixos
+			begin
+				regAlvoValor = regis[2];
+				regOprValor = regis[3];
+			end
+		else 
+			begin 
+				regAlvoValor =  regis[regAlvo];
+				regOprValor = regis[regOpr]; 
+			end
+	end
+
+endmodule

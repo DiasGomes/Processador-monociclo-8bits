@@ -1,0 +1,35 @@
+module nRisc(clock, reset, pc_out,OPcode, bit_50, bit_32, bit_10, memoriaDados_Out,memRead, memWrite, regAlvo_Zero, regOpr_imediato);
+
+input clock, reset;
+input[7:0] memoriaDados_Out;
+input[3:0] OPcode;
+input[5:0] bit_50;
+input[1:0] bit_32, bit_10;
+output[7:0] regAlvo_Zero, regOpr_imediato;
+output memRead, memWrite;
+
+output wire[7:0] pc_out;
+
+wire[7:0] pc_plus;
+wire[7:0] regAlvo, regOpr;
+wire[7:0] label, imediato;
+wire[7:0] pc_jump, nextPC, ULAout;
+wire zero;
+//sinais de controle
+wire[2:0] ULAop;
+wire jump, memtoReg, ULAsrc, regWrite, beq, atr;
+
+pc pc_Module(clock, reset, nextPC, pc_out);
+registradores registradores_Module(clock, regWrite, beq, bit_32, bit_10, data,regAlvo, regOpr);
+extensor2para8 extensor2para8_Module(bit_10, imediato);
+extensor6para8 extensor6para8_Module(bit_50, label);
+Muxzero Muxzero_Module(regAlvo, atr, regAlvo_Zero);
+Controle controle_Module(OPcode, ULAop, jump, memtoReg, memRead, memWrite, ULAsrc, regWrite, beq, atr);
+Mux Mux_REGtoULA(regOpr, imediato, ULAsrc, regOpr_imediato);
+ULA ULA_Module(regAlvo_Zero, regOpr_imediato, ULAop, zero, ULAOut);
+Mux Mux_ULAouMEM(ULAOut, memoriaDados_Out, memtoReg, data);
+somadorPC somadorPC_Module(pc_out, pc_plus);
+Mux Mux_PCouJUMP(pc_plus, label, jump, pc_jump);
+Mux Mux_PCouBRANCH(pc_jump, label, zero & beq, nextPC);
+
+endmodule

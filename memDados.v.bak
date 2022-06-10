@@ -1,0 +1,22 @@
+module memDados(clock, write, read, dadoEntrada, index, dadoSaida);
+	input clock;
+	input write;
+	input read;
+	input[7:0] dadoEntrada;
+	input [7:0] index;
+	output reg[7:0] dadoSaida;
+	reg [7:0] dado [15:0];
+
+//escrita de dados
+always @(negedge clock)
+	begin 
+		if(write) dado[index] = dadoEntrada;
+	end
+//leitura de dados	
+always @(posedge clock)
+	begin 
+		if(read) dadoSaida = dado[index];
+	end
+
+endmodule
+

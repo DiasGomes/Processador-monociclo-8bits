@@ -1,0 +1,124 @@
+module simula();
+
+reg CLK, reset;
+
+wire[7:0] pc, memoriaDados_Out, regAlvo_Zero, regOpr_imediato;
+wire[5:0] bit_50;
+wire[3:0] OPcode;
+wire[1:0] bit_32, bit_10;
+wire[7:0] memoriaDado_out;
+wire memRead, memWrite;
+
+nRisc processador(CLK, reset, pc,OPcode, bit_50, bit_32, bit_10, memoriaDados_Out,memRead, memWrite, regAlvo_Zero, regOpr_imediato);
+memDados Memoria(CLK, memWrite, memRead, regAlvo_Zero, regOpr_imediato, memoriaDado_out);
+memInst MemoriaInstrucao(CLK, pc, OPcode, bit_50, bit_32, bit_10);
+
+//carrega memoria de dados
+initial
+  begin	  
+    
+		Memoria.dado[0] = 8'b00000001;	//k = 1
+		//j (dado[1]) é xxxx xxxx
+		Memoria.dado[2] = 8'b00001010;	//n = 10 tamanho do vetor (MAX = dado size - 4), no caso MAX = 12
+		// aux (dado[3]) é xxxx xxxx
+		// Inicio do vetor
+		Memoria.dado[4] = 8'b00001001;	//v[0] = 9
+		Memoria.dado[5] = 8'b00001000;	//v[1] = 8
+		Memoria.dado[6] = 8'b00000111;	//v[2] = 7
+		Memoria.dado[7] = 8'b00000110;	//v[3] = 6
+		Memoria.dado[8] = 8'b00000101;	//v[4] = 5
+		Memoria.dado[9] = 8'b00000100;	//v[5] = 4
+		Memoria.dado[10] = 8'b00000011;	//v[6] = 3
+		Memoria.dado[11] = 8'b00000010;	//v[7] = 2
+		Memoria.dado[12] = 8'b00000001;	//v[8] = 1
+		Memoria.dado[13] = 8'b00000000;	//v[9] = 0
+ 
+    CLK = 0;
+  end
+
+//carrega memoria de instrucao
+initial 
+	begin
+	
+	//loopOne:		
+		MemoriaInstrucao.inst[0] = 8'b11100000;	//atr	// $a0 = endereço de k (0)
+		MemoriaInstrucao.inst[1] = 8'b10011000;	//lw	// $a2 = k
+		MemoriaInstrucao.inst[2] = 8'b11100110;	//atr	// Cálculo para endereço de n (8)
+		MemoriaInstrucao.inst[3] = 8'b11110110;	//sll	// $a1 = endereço de n
+		MemoriaInstrucao.inst[4] = 8'b10011101;	//lw	// $a3 = n
+		MemoriaInstrucao.inst[5] = 8'b01110010;	//beq	// k < n
+		MemoriaInstrucao.inst[6] = 8'b11011001;	//addi 	// k++
+		MemoriaInstrucao.inst[7] = 8'b10100010;	//sw	// guarda na memória o valor de k
+		MemoriaInstrucao.inst[8] = 8'b11100010;	//atr	// Cálculo para endereço de J (4)
+		MemoriaInstrucao.inst[9] = 8'b11110010;	//sll	// $a0 = endereço de j
+		MemoriaInstrucao.inst[10] = 8'b11101000;	//atr	// a2 = 0 
+		MemoriaInstrucao.inst[11] = 8'b11100010;	//atr	// Cálculo para endereço de J
+		MemoriaInstrucao.inst[12] = 8'b11110001;	//sll	// $a0 = endereço de j
+		MemoriaInstrucao.inst[13] = 8'b10100010;	//sw	// guarda na memória o valor de j = 0
+	//loopTwo:		
+		MemoriaInstrucao.inst[14] = 8'b11100010;	//atr	// Cálculo para endereço de J (4)
+		MemoriaInstrucao.inst[15] = 8'b11110001;	//sll	// $a0 = endereço de j
+		MemoriaInstrucao.inst[16] = 8'b11100110;	//atr	// Cálculo para endereço de n (8)
+		MemoriaInstrucao.inst[17] = 8'b11110110;	//sll	// $a1 = endereço de n
+		MemoriaInstrucao.inst[18] = 8'b10011000;	//lw	// $a2 = j
+		MemoriaInstrucao.inst[19] = 8'b10011101;	//lw	// $a3 = n
+		MemoriaInstrucao.inst[20] = 8'b11011001;	//addi	// $a2 = j+1
+		MemoriaInstrucao.inst[21] = 8'b01000000;	//beq	// j < n-1 no caso a comparação é j+1 < n -> já que não há subtração
+	// if
+		MemoriaInstrucao.inst[22] = 8'b10011000;	//lw	// $a2 = j (recarrega valor j)
+		MemoriaInstrucao.inst[23] = 8'b11100010;	//atr	// Cálculo de endereço de vetor[0]
+		MemoriaInstrucao.inst[24] = 8'b11110011;	//sll	// $a0 = endereço de vetor[0] (16)
+		MemoriaInstrucao.inst[25] = 8'b11111010;	//sll	// j = j * 4
+		MemoriaInstrucao.inst[26] = 8'b10000010;	//add	// $a0 = endereço de vetor[j]
+		MemoriaInstrucao.inst[27] = 8'b11100100;	//atr	// zera valor $a1
+		MemoriaInstrucao.inst[28] = 8'b10000100;	//add	// $a1 = endereço de vetor[j]
+		MemoriaInstrucao.inst[29] = 8'b11010110;	//addi	// Cálculo de endereço de vetor[j+1]
+		MemoriaInstrucao.inst[30] = 8'b11010110;	//addi	// $a1 = endereço de vetor[j+1]
+		MemoriaInstrucao.inst[31] = 8'b10011000;	//lw	// $a2 = valor de vetor[j]
+		MemoriaInstrucao.inst[32] = 8'b10011101;	//lw	// $a3 = valor de vetor[j+1]
+		MemoriaInstrucao.inst[33] = 8'b10111110;	//slt	// if (vetor[j] > vetor[j + 1]) ou if (vetor[j + 1] < vetor[j])
+		MemoriaInstrucao.inst[34] = 8'b11101000;	//atr	// zera valor do registrador para comparação
+		MemoriaInstrucao.inst[35] = 8'b01101100;	//beq	// verifica se é menor
+		MemoriaInstrucao.inst[36] = 8'b11101111;	//atr	// Cálculo de endereço de aux
+		MemoriaInstrucao.inst[37] = 8'b11111110;	//sll	// $a3 = endereço de aux (12)
+		MemoriaInstrucao.inst[38] = 8'b10011000;	//lw	// $a2 = valor de vetor[j]
+		MemoriaInstrucao.inst[39] = 8'b10101110;	//sw	// aux = vetor[j];
+		MemoriaInstrucao.inst[40] = 8'b10011001;	//lw	// $a2 = valor de vetor[j+1]
+		MemoriaInstrucao.inst[41] = 8'b10100010;	//sw	// vetor[j] = vetor[j + 1]; 
+		MemoriaInstrucao.inst[42] = 8'b10011011;	//lw	// $a2 = valor de aux
+		MemoriaInstrucao.inst[43] = 8'b10100110;	//sw	// vetor[j + 1] = aux; 
+	//next:		
+		MemoriaInstrucao.inst[44] = 8'b11100010;	//atr	// Cálculo para endereço de J (4)
+		MemoriaInstrucao.inst[45] = 8'b11110001;	//sll	// $a0 = endereço de j
+		MemoriaInstrucao.inst[46] = 8'b10011000;	//lw	// $a2 = j
+		MemoriaInstrucao.inst[47] = 8'b11011001;	//addi	// j++
+		MemoriaInstrucao.inst[48] = 8'b0100010;	//sw	// guarda na memória o valor de j
+		MemoriaInstrucao.inst[49] = 8'b00001110;	//j	// Retorno do loop
+	//exit:		
+		MemoriaInstrucao.inst[50] = 8'b11000000;	//h	// encerra o programa
+
+end
+  
+initial
+  begin
+		CLK = 0;
+		 forever
+			 begin       
+				 #1;	
+				 CLK = ~CLK;
+			 end
+  end   
+  
+initial 
+	begin
+	  forever
+		  begin 
+				$display("Status do processador");
+				
+				$display("-------------------------------------------------");
+				#1;
+			end
+    end
+	
+endmodule
+

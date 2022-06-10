@@ -1,0 +1,13 @@
+module Muxzero(sinal, sinalAtr, out);
+
+input[7:0] sinal;
+input sinalAtr;
+output reg[7:0] out;
+
+always @(sinal, sinalAtr)
+	begin
+		if(sinalAtr == 1'b0)	out <= sinal;
+		else if(sinalAtr == 1'b1)	out <= 8'b00000000;	
+	end
+
+endmodule

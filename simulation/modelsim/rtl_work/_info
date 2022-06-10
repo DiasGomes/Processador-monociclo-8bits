@@ -1,0 +1,273 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\QuartusProjects\nRisc\simulation\modelsim
+vControle
+I^[FK0Ffn@<SXm^lm1clij3
+VRe4442BPX8A9eS7J`L;3h1
+Z1 dC:\altera\13.0sp1\QuartusProjects\nRisc\simulation\modelsim
+w1654822750
+8C:/altera/13.0sp1/QuartusProjects/nRisc/controle.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/controle.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/QuartusProjects/nRisc -O0
+n@controle
+!i10b 1
+!s100 ^Sk]]nK7iHLTJVz84NCcI2
+!s85 0
+!s108 1654823663.708000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/controle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/controle.v|
+!s101 -O0
+vextensor2para8
+I0aHTTBXkY4hElcJUNSjMC1
+VLUlUim2iz1EQcg>_m;F;A0
+R1
+w1654822422
+8C:/altera/13.0sp1/QuartusProjects/nRisc/extensor2para8.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/extensor2para8.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 ZznAS;3`]FgQI_Y4n>I5b1
+!s85 0
+!s108 1654823663.298000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/extensor2para8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/extensor2para8.v|
+!s101 -O0
+vextensor6para8
+Id8W=DzgTEJj7e0i<SUEdY1
+VIE?=RPjAc8S6LmoMknRCR3
+R1
+w1654822384
+8C:/altera/13.0sp1/QuartusProjects/nRisc/extensor6para8.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/extensor6para8.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 QWM6Y[SnQ0LmAma@B@>jY0
+!s85 0
+!s108 1654823663.437000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/extensor6para8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/extensor6para8.v|
+!s101 -O0
+vmemDados
+IMHJGlHLi]MBYWcD4Dg0FF3
+Vg>j3a@@41zWlTdbB^i>QA1
+R1
+w1654823544
+8C:/altera/13.0sp1/QuartusProjects/nRisc/memdados.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/memdados.v
+L0 1
+R2
+r1
+31
+R3
+R4
+nmem@dados
+!i10b 1
+!s100 LLN9EOS]3Sh5>XGIRNUh`1
+!s85 0
+!s108 1654823664.231000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/memdados.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/memdados.v|
+!s101 -O0
+vmemInst
+ImIQ2PEmJn=nREi<iSK7e:2
+VPGP<5Ga?:Z1<m>_zZ`nb<0
+R1
+w1654822184
+8C:/altera/13.0sp1/QuartusProjects/nRisc/meminst.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/meminst.v
+L0 1
+R2
+r1
+31
+R3
+R4
+nmem@inst
+!i10b 1
+!s100 8KSB=@=mnE?7ZaZee;XdO0
+!s85 0
+!s108 1654823664.338000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/meminst.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/meminst.v|
+!s101 -O0
+vMux
+Ia2c544N@g48?P;Fli?Hj>1
+VVn]MDjmdVN;^34P;A6NC[2
+R1
+w1654822004
+8C:/altera/13.0sp1/QuartusProjects/nRisc/mux.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/mux.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@mux
+!i10b 1
+!s100 oz7QPH7eU=[5f`=jQ=Z2K1
+!s85 0
+!s108 1654823663.820000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/mux.v|
+!s101 -O0
+vMuxzero
+IL;feFb>9dS^J3o^B_G_1?3
+V6L`1TF7^5XAZ6zF@K:PTk3
+R1
+w1654820463
+8C:/altera/13.0sp1/QuartusProjects/nRisc/muxzero.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/muxzero.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@muxzero
+!i10b 1
+!s100 0IdT_oG9SShH@Q=IH;;JH1
+!s85 0
+!s108 1654823663.571000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/muxzero.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/muxzero.v|
+!s101 -O0
+vnRisc
+IfkZeoGN=@P^KNj_nZl9co1
+V6DkT:`@2`@JWOR>Bn:XK>3
+R1
+w1654823021
+8C:/altera/13.0sp1/QuartusProjects/nRisc/nrisc.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/nrisc.v
+L0 1
+R2
+r1
+31
+R3
+nn@risc
+R4
+!i10b 1
+!s100 1<AEJDViENZ5OA5aScJRj2
+!s85 0
+!s108 1654823662.916000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/nrisc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/nrisc.v|
+!s101 -O0
+vpc
+I2Zcm:I>2?H0GTGRADbWAG2
+VeIO_R0c^A2Ql=E6UWNFeZ1
+R1
+w1654822258
+8C:/altera/13.0sp1/QuartusProjects/nRisc/pc.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/pc.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 F8BbkBK6[[9FLjF82[Rg_1
+!s85 0
+!s108 1654823663.040000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/pc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/pc.v|
+!s101 -O0
+vregistradores
+I]7zzDMM2<6I8lS8`TIOFG1
+VS?Jz3aAdcJ`fkY9WWNEOZ1
+R1
+w1654820012
+8C:/altera/13.0sp1/QuartusProjects/nRisc/registradores.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/registradores.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 3BC5U`WN3Al^zciZ6QB7_0
+!s85 0
+!s108 1654823663.182000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/registradores.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/registradores.v|
+!s101 -O0
+vsimula
+!i10b 1
+!s100 3ROzV1Kg9WAdL:VUK8C941
+InL[RUeI]2Oad7F>[EFah`3
+VdhdZD?PcIDXEnl`i7l@_J2
+R1
+w1654823619
+8C:/altera/13.0sp1/QuartusProjects/nRisc/simula.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/simula.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1654823664.478000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/simula.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/simula.v|
+!s101 -O0
+R3
+R4
+vsomadorPC
+IWKnIaF:oAUnTY6]i_>O;D3
+V0PMS6DRJ8IE]D@Yckm@C92
+R1
+w1654822235
+8C:/altera/13.0sp1/QuartusProjects/nRisc/somadorpc.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/somadorpc.v
+L0 1
+R2
+r1
+31
+R3
+R4
+nsomador@p@c
+!i10b 1
+!s100 agk5UgVcMAG`5nP9FWN:o3
+!s85 0
+!s108 1654823664.088000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/somadorpc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/somadorpc.v|
+!s101 -O0
+vULA
+IjmMhcEmXnRYNk93E:g5^c2
+VDbT_CN<zc@E<E6`i^f4Q]0
+R1
+w1654820623
+8C:/altera/13.0sp1/QuartusProjects/nRisc/ula.v
+FC:/altera/13.0sp1/QuartusProjects/nRisc/ula.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@u@l@a
+!i10b 1
+!s100 B3??RmY:R6e4B7^L@=z;L0
+!s85 0
+!s108 1654823663.963000
+!s107 C:/altera/13.0sp1/QuartusProjects/nRisc/ula.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/QuartusProjects/nRisc|C:/altera/13.0sp1/QuartusProjects/nRisc/ula.v|
+!s101 -O0
